@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import classes from './Header.module.css'
 
 const Header = () => {
+    
     return (
         <div className={classes.header}>
             <div className={classes.header__container}>
@@ -11,8 +12,9 @@ const Header = () => {
                     </div>
                 </div>
                 <div className={classes.header__right}>
+                    
                     <div className={classes.header__input}>
-                        <input type="text" placeholder='Введите название фильма' />
+                        
                     </div>
                     <button>Выйти</button>
                 </div>
