@@ -1,0 +1,11 @@
+.sortBtn {
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    font-size: 20px;
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    line-height: 34px;
+    color: #333333;
+}

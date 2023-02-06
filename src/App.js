@@ -1,15 +1,11 @@
-import Header from './components/Header/Header.jsx'
+import Header from './components/Header/Header.jsx';
 // import News from './components/News/News.jsx';
-import PostFilms from './components/PostFilms/PostFilms.jsx';
-import axios from 'axios'
+import axios from 'axios';
+import { useEffect, useMemo, useState } from 'react';
 import './App.css';
-import { useMemo, useState } from 'react';
-import { useEffect } from 'react';
 import Footer from './components/Footer/Footer.jsx';
 import PostList from './components/PostLIst/PostList.jsx';
-import Select from './components/UI/Select/Select.jsx';
-import Button from './components/UI/Button/Button.jsx';
-import MyInput from './components/UI/Input/MyInput.jsx';
+import SecondHeader from './components/SecondHeader/SecondHeader.jsx';
 
 function App() {
 
@@ -18,11 +14,10 @@ function App() {
     const [selectedSort, setSelectedSort] = useState('')
     const [searchQuery, setSearchQuery] = useState('')
 
+
     const sortedAndSearchedPosts = useMemo(() => {
         return [...isMovies].filter(film => film.title.toLowerCase().includes(searchQuery))
     }, [isMovies, searchQuery])
-
-
 
 
     const getMovies = async () => {
@@ -34,7 +29,6 @@ function App() {
 
         setMovies(movies)
         setIsLoading(false)
-
     }
 
     useEffect(() => {
@@ -49,40 +43,25 @@ function App() {
         } else {
             setMovies([...isMovies].sort((a, b) => a[sort] - b[sort]))
         }
-        
-        console.log(sortedAndSearchedPosts)
-
-       
     }
-
 
     return (
         <div className='App'>
-            <div>
-            </div>
-            <div>
-                <Button
-                    value={selectedSort}
-                    change={sortPosts}
-                    options={[
-                        { id: 1, value: 'title', name: 'По названию' },
-                        { id: 2, value: 'year', name: 'По дате выхода' },
-                        { id: 3, value: 'rating', name: 'По рейтингу' }
-                    ]}
-                />
-            </div>
-            <MyInput
-                placeholder='Введите название фильма'
-                value={searchQuery}
-                type="text"
-                onChange={evt => setSearchQuery(evt.target.value)}
+            <Header
+                searchQuery={searchQuery}
+                setSearchQuery={setSearchQuery}
+                selectedSort={selectedSort}
+                sortPosts={sortPosts}
             />
-            <div>{searchQuery}</div>
-
-            <Header />
+            <SecondHeader
+                selectedSort={selectedSort}
+                sortPosts={sortPosts}
+            />
             {isLoading
-                ? <h1>Идет загрузка..</h1>
-                : <PostList isMovies={sortedAndSearchedPosts} />
+                ? <h1 style={{textAlign:'center'}}>Идет загрузка..</h1>
+                : <PostList
+                    isMovies={sortedAndSearchedPosts}
+                />
             }
             <Footer />
         </div>

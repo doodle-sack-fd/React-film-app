@@ -1,3 +1,8 @@
+#root {
+    display: flex;
+	flex-direction: column;
+	min-height: 100%;
+}
 .img {
     width: 100px;
     height: 100px;
@@ -7,10 +12,8 @@
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    width: 60%;
+    max-width: 1200px;
     flex-wrap: wrap;
+    flex: 1 0 auto;
 }
-.film__container {
-    width: 1200px;
-    margin: 0 auto;
-}
+

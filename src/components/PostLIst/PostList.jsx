@@ -1,7 +1,10 @@
 import React from 'react'
 import PostFilms from '../PostFilms/PostFilms'
 
-const PostList = ({isMovies}) => {
+const PostList = ({ isMovies }) => {
+
+    
+
     return (
         <div className='film__list'>
             {isMovies.map(movie => {
@@ -12,7 +15,9 @@ const PostList = ({isMovies}) => {
                     runtime={movie.runtime}
                     genres={movie.genres}
                     rating={movie.rating}
-                    url={movie.url} />
+                    url={movie.url}
+                   
+                />
 
             })}
         </div>

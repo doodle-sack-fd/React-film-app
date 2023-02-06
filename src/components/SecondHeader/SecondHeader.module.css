@@ -1,0 +1,9 @@
+.secondHeader {
+    width: 100vw;
+    background: #ffffff;
+    box-shadow: 0px 5px 5px rgba(157, 157, 157, 0.25);
+}
+.secondHeader__container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
